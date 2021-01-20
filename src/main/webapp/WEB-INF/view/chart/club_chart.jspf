@@ -3,7 +3,6 @@
 <%@ page pageEncoding="UTF-8" %>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-   
     google.charts.load('current', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(drawChart);
 
@@ -11,16 +10,16 @@
 
         var data = google.visualization.arrayToDataTable([
             ['Name', 'count'],
-            <c:forEach var="dept" items="${ dept_list }">
-            ['${ dept.name }', ${ fn:length(dept.employees) }],
+            <c:forEach var="club" items="${ club_list }">
+            ['${ club.name }', ${ fn:length(club.employees) }],
             </c:forEach>
         ]);
 
         var options = {
-            title: 'Number of departments'
+            title: 'Number of clubs'
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        var chart = new google.visualization.ColumnChart(document.getElementById('piechart'));
 
         chart.draw(data, options);
     }
