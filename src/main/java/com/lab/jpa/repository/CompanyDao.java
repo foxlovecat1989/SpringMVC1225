@@ -20,10 +20,10 @@ public class CompanyDao {
     
     private Session getSession() {
         // 取用 session 之前先進行關閉
-        if(session != null) {
-            session.close();
-            session = null;
-        }
+//        if(session != null) {
+////            session.close();
+////            session = null;
+//        }
         try {
             session = sessionFactory.getCurrentSession();
         } catch (Exception e) {
