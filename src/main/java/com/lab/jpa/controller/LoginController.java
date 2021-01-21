@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-    private final String CLIEND_ID = "554344175148-v58ke8bi69iuv10cmh3f6jhcvp238ud3.apps.googleusercontent.com";
+    private final String CLIEND_ID = "889955278565-585vm9tbd9nbfnm58t609j8s64cnkui6.apps.googleusercontent.com";
     
     @PostMapping("/check")
     //@ResponseBody
@@ -36,8 +36,10 @@ public class LoginController {
                 // 將使用者資料存放到session
                 HttpSession session = req.getSession();
                 session.setAttribute("username", username);
+                session.setAttribute("picture_url", picture_url);
+                session.setAttribute("email", email);
                 return "redirect: ../dept/";
-                //return "pass, " + username + ", " + email + ", " + picture_url;
+                // return "pass, " + username + ", " + email + ", " + picture_url;
             } else {
                 return "redirect: ../../google_login.jsp";
             }
